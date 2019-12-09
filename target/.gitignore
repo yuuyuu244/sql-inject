@@ -1,0 +1,5 @@
+classes/*
+m2e-wtp/*
+maven-archiver/*
+test-slasses/*
+*.war
