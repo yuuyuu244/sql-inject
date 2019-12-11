@@ -12,14 +12,14 @@ public class Bean implements Serializable {
     private String id;
     private String pass;
     private boolean result;
-    
+
     /**
      * デフォルトコンストラクタ
      */
     public Bean() {
-        
+
     }
-    
+
     /**
      * コンストラクタ
      * @param id
@@ -51,7 +51,7 @@ public class Bean implements Serializable {
         }
         return isOk;
     }
-    
+
     /**
      * databaseへのアクセスメソッド
      * @return
@@ -62,7 +62,7 @@ public class Bean implements Serializable {
         String tableName = "USERINFO";
         String sql = "select * from " + tableName + " where uid = '" + this.id + "' and pass = '" + this.pass + "'";
         System.out.println("SQL [" + sql + "]");
-        
+
      // ドライバーの読み込み
         Class.forName("com.mysql.cj.jdbc.Driver"); // 検索に失敗する場合は必要
         // Connectionオブジェクトの取得. DBへ接続
@@ -78,7 +78,7 @@ public class Bean implements Serializable {
 
           // 1行ずつ読み込む
           while (rs.next()) {
-              Bean item = 
+              Bean item =
                       new Bean(rs.getString("uid"), rs.getString("pass"));
               list.add(item);
           }
@@ -87,8 +87,8 @@ public class Bean implements Serializable {
       }
         return list;
     }
-    
-    
+
+
     /**
      * IDの取得
      * @return
@@ -124,7 +124,7 @@ public class Bean implements Serializable {
     public boolean isResult() {
         return result;
     }
-    
+
     /**
      * 認証結果を格納する
      * @param result
